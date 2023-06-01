@@ -197,3 +197,21 @@
 // document.body.addEventListener('click', high5);
 // ['Nikhil', 'Nicks', 'Chicku'].forEach(high5);
 
+
+// ///////////////////// Functions Returning Functions ///////////////////
+
+// const greet = function (greeting) {
+//     return function (name) {
+//         console.log(`${greeting}... ${name}`);
+//     };
+// }
+
+// const greetHey = greet('Heyy');
+// greetHey('Nikhil');
+// greetHey('Chiku');
+// // Another way of calling a function returning a function
+// greet('Hello there')('Nicks')
+
+// // Using arrow functions
+// const greetArrow = greeting => name => console.log(`${greeting}... ${name}`);
+
