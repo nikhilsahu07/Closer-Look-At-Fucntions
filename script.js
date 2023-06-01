@@ -65,3 +65,104 @@
 // checkIN(flight, nikhil)
 // console.log(nikhil.passportNum);
 
+
+// /////////////////////// First-Class Function and High-Order Functions and Callback functions////////////////////
+
+// // // ********* FIRST-CLASS Functions ********* //
+
+// // First-class function: In Javascript functions are treated as First-class citizens, this means that
+// //functions can be stored in variable are they are simply values.(*i.e., 1.Functions can be stored in variables,
+// //  2.)Functions can be passed as arguements, return from a function as a result,
+// // and can be stored in data structures)
+// // * Functions are just another "type" of object.
+
+// //1.) Assigning a functions to a Variables or Properties
+// const greet = function (hisName) {
+//     return (`Hello there... ${hisName}👋`);
+// };
+// //assigning a function to a property(also returning function as a result)
+// const welcome = {
+//     name: 'Nikhil',
+//     favDish: 'Biryani',
+//     sayHello: function (price = 220) {
+//         return `${greet(this.name)} And here is your ${this.favDish}.
+// ${this.favDish}: ${price}rs`
+//     },
+// };
+
+// console.log(welcome.sayHello());
+
+// // 2.) Function can be passed as a arguement
+
+// function thankYou(anotherFunction) {
+//     return anotherFunction('Chiku')
+// }
+// console.log(thankYou(greet).replace('Hello there', 'thank you') + `Visit again!`);
+
+// // 3.) Returning a function as a result
+
+// function offerMouthFreshner(numCustomer) {
+//     return function (customerName) {
+//         console.log('Have some Mouth freshner...'.repeat(numCustomer), customerName);
+//     };
+// };
+
+// const offeringMouthF = offerMouthFreshner(2);
+// offeringMouthF('Nikhil and Riya')
+
+// // Call methods on Functions
+// const someOtherObject = {
+//     name: 'Love',
+//     favDish: 'Butter Chicken Masala'
+// }
+// const greetWithLove = (welcome.sayHello.bind(someOtherObject));
+// console.log(greetWithLove());
+
+// // ********* HIGH-ORDER FUNCTIONS ******** //
+
+// // // A Higher-Order function is a function that receives one or more functions as arguements
+// // or returns a new function, or both as a result.
+// //This is only possible because of first-class function.
+// //* There's no first-class function type thing it's just a concept or a feature that a programming language
+// //provides or not. And becuase it has first-class function High-order function exits in language
+
+
+// // Higher-oder function taking a function as an arguement
+// function calculate(num1, num2, operation) {
+//     return operation(num1, num2);
+// }
+
+// function add(a, b) {
+//     return a + b;
+// }
+// function subtract(a, b) {
+//     return a - b
+// }
+// function divide(a, b) {
+//     if (b === 0) {
+//         return `Can't divide by zero`;
+//     } else {
+//         return a / b;
+//     }
+// }
+
+// console.log(calculate(15, 3, add));
+// console.log(calculate(15, 3, subtract));
+// console.log(calculate(15, 3, divide));
+
+// // Higher-order function returning a function
+// function multiplyBy(num) {
+//     return function (x) {
+//         return x * num;
+//     };
+// }
+
+// const multiplyByTwo = multiplyBy(2);
+// const multiplyByTwoFive = multiplyByTwo(5);
+// console.log(multiplyByTwoFive);
+
+// // // Callback Functions
+
+// //Callback function is a function that is passed as an arguemnent to another function
+// // and gets executed at later point in time. It allows asynchronous and event-driven programming in JS
+
