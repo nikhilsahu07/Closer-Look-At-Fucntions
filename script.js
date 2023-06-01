@@ -166,3 +166,34 @@
 // //Callback function is a function that is passed as an arguemnent to another function
 // // and gets executed at later point in time. It allows asynchronous and event-driven programming in JS
 
+
+// //////////////////// Functions Accepting Callback Functions /////////////////////////////
+
+// const oneWord = function (str) {
+//     return str.replaceAll(' ', '').toLowerCase();
+// }
+
+// const firstWordUppercase = function (str) {
+//     const [firstWord, ...otherWords] = str.split(' ');
+//     return [firstWord.toUpperCase(), ...otherWords].join(' ');
+// }
+
+// //Higher-Order functions
+// const transformer = function (str, func) {
+//     console.log(`Original string: ${str}`);
+//     console.log(`Transformed String: ${func(str)}`);
+
+//     console.log(`Transformed by: ${func.name}`);
+// }
+
+// transformer('JavaScript is the best language.', firstWordUppercase);
+
+// transformer('Web DevelopMent is Love', oneWord);
+
+// // JS uses Callbacks all the time
+// const high5 = function () {
+//     console.log('👋');
+// }
+// document.body.addEventListener('click', high5);
+// ['Nikhil', 'Nicks', 'Chicku'].forEach(high5);
+
