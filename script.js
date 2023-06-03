@@ -215,3 +215,107 @@
 // // Using arrow functions
 // const greetArrow = greeting => name => console.log(`${greeting}... ${name}`);
 
+
+// ///////////////////////// The call() and apply() Methods ////////////////////////
+
+// const lufthansa = {
+//     airline: 'Lufthansa',
+//     iataCode: 'LH',
+//     bookings: [],
+//     // book: function(){}
+//     book(flightnum, name) {
+//         console.log(`${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightnum}`);
+//         this.bookings.push({ flight: `${this.iataCode}`, flightnum, name })
+//     },
+// };
+
+// lufthansa.book(234, 'Nikhil Sahu');
+// lufthansa.book(239, 'Riya Singh')
+// console.log(lufthansa);
+
+// const eurowings = {
+//     airline: 'Eurowings',
+//     iataCode: 'EW',
+//     bookings: [],
+// };
+
+// const bookFlight = lufthansa.book;
+
+// // Does not work cause outside object this keyword is pointing no-where
+// // bookFlight(129, 'Nidhi Sahu');
+
+// // Call Method
+
+// bookFlight.call(eurowings, 129, 'Nidhi Sahu');
+// console.log(eurowings);
+
+// bookFlight.call(lufthansa, 213, 'Kunal Yadav');
+// console.log(lufthansa);
+
+// const swiss = {
+//     airline: 'Swiss Air Lines',
+//     iataCode: 'LX',
+//     bookings: [],
+// }
+
+// bookFlight.call(swiss, 189, 'Sandeep Mahto');
+
+// // Apply Method
+// const flightData = [127, 'Sumit Verma'];
+// bookFlight.apply(swiss, flightData);
+
+// console.log(swiss);
+
+// // bookFlight.call(swiss, ...flightData)
+
+
+// ////// Bind Method
+// // Main difference in Bind method is that it returns a brand new function that points to a specfic object
+// // create a function of specific task
+// const bookEW = bookFlight.bind(eurowings);
+// const bookLX = bookFlight.bind(swiss);
+// const bookLF = bookFlight.bind(lufthansa);
+
+// bookEW(126, 'Jonathan');
+// bookEW(97, 'Jardani')
+
+// const bookEW129 = bookFlight.bind(eurowings, 129);
+// bookEW129('Nikhil');
+
+// console.log(eurowings);
+
+// // With Event listeners
+// lufthansa.planes = 300;
+
+// lufthansa.buyPlanes = function () {
+//     console.log(this);
+
+//     this.planes++;
+//     console.log(this.planes);
+// };
+// // lufthansa.buyPlanes();
+
+// document.querySelector('.buy').addEventListener('click', lufthansa.buyPlanes.bind(lufthansa));
+
+// // Partial Applications
+// const addTax = (rate, value) => value + value * rate;
+
+// console.log(addTax(.23, 200));
+
+// const addGST = addTax.bind(null, .18);
+// // const addGST = value => value + value*.18
+// // but using bind method we are creating a brand new specific function and example could be more complex
+
+// console.log(addGST(100));
+// console.log(addGST(200));
+
+// // function returning another function
+// const addGST2 = function (rate) {
+//     return function (value) {
+//         console.log(value + value * rate);
+//     }
+// }
+// const myGST = addGST2(.18);
+// const myMoney1 = myGST(1000);
+// const myMoney2 = myGST(2000);
+
