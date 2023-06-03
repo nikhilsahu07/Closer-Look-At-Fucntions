@@ -319,3 +319,31 @@
 // const myMoney1 = myGST(1000);
 // const myMoney2 = myGST(2000);
 
+
+// ////////////// Immediately Invoked Function Expressions (IIFE)////////////////////
+
+// const runOnce = function () {
+//     console.log('This will never run once.');
+// };
+// runOnce();
+
+// // IIFE
+// (function () {
+//     console.log('This will run once only..!');
+//     const isPrivate = 7359321;
+// })();
+
+// (() => console.log('This will ALSO run once only..!'))();
+
+// // console.log(isPrivate); //isPrivate is incapsulated in the function
+
+// //Newer version of ES6+ we've code block
+// {
+//     const userName = 'heynikhil07@gmail.com';
+//     let password = 'sahu_Nikhil@rnc&07';
+//     var followers = 234; //global declaration
+// }
+// console.log(followers);
+// console.log(userName);
+// console.log(password);
+
